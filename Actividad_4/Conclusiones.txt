@@ -1,0 +1,15 @@
+Ningún modelo cumple el criterio de selección. El recall más alto por corte fue de 0.57 (CNN propia), por debajo del mínimo de 0.80. Por lo tanto, ningún modelo se aprueba para el motor de IA de OVARA en esta etapa.
+La CNN propia obtuvo el mejor recall y F1 y fue la más rápida, pero con solo 7 pacientes de prueba las diferencias entre modelos no son estadísticamente confiables. 
+
+A nivel paciente, la CNN y ResNet18 detectaron a las 2 pacientes con endometrioma, pero también marcaron como positivas a 4 de las 5 sanas, así que generarían muchas falsas alarmas.
+El accuracy de EfficientNet-B0 (0.80) es engañoso: se debe a que la mayoría de los cortes no tienen quiste.
+
+Su recall de 0.14 lo hace inútil clínicamente, lo que confirma por qué el accuracy no se usó como criterio dedecisión.
+La latencia no es una limitante. Los tres modelos procesan un estudio completo en unos 0.25 s en una GPU de laptop (RTX 3070 Ti), muy por debajo del límite de 5 s.
+
+La causa principal es el tamaño del dataset. Solo 45 pacientes eran utilizables y apenas 13 tenían endometrioma, con lo que quedaron unas 9 positivas para entrenar. 
+No es suficiente para que un clasificador aprenda a distinguir el hallazgo de forma robusta.
+
+Siguiente paso: ampliar los datos antes de volver a evaluar. Opciones: incorporar el subconjunto D1 (51 pacientes con máscaras de endometrioma), usar validación cruzada por paciente para obtener métricas más estables y, 
+a mediano plazo, conseguir datos de población mexicana con licencia que permita uso comercial. Esto coincide con el punto de decisión go/no-go definido en el análisis de riesgos del proyecto: 
+la IA solo se integra a la plataforma cuando demuestre el desempeño mínimo requerido.

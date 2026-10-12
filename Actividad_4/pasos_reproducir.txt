@@ -1,0 +1,8 @@
+
+Entorno: Python 3.11, PyTorch 2.11 con CUDA 12.8 y las dependencias listadas en requirements.txt. Se usó una semilla fija (42) para que los resultados sean reproducibles; puede haber pequeñas variaciones entre equipos por el no determinismo de las operaciones en GPU.
+
+Pasos para reproducir:
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements.txt
+python preparar_dataset.py
+Abrir ovara_comparacion_modelos.ipynb y ejecutar "Run All"

@@ -1,0 +1,5 @@
+El dataset puede descargarlo de esta fuente:
+
+https://zenodo.org/records/13749613
+
+Justo al final hay un enlace de 8GB en donde permite descargar el ds. Github no me permitio subir archivos pesados. 

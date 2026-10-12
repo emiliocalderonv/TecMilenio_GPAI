@@ -1,0 +1,4 @@
+﻿Modelo,Accuracy (corte),Precision (corte),Recall (corte),F1-score (corte),Recall (paciente),F1-score (paciente),Parámetros (M),Latencia/corte media (ms),Throughput (cortes/s),Tiempo/paciente (s),Entrenamiento (min)
+CNN propia,0.633,0.174,0.571,0.267,1.0,0.5,0.389,1.079,4101.071,0.237,
+ResNet18,0.617,0.136,0.429,0.207,1.0,0.5,11.178,3.077,2896.215,0.242,0.237
+EfficientNet-B0,0.8,0.143,0.143,0.143,0.0,0.0,4.01,10.206,2160.599,0.248,0.245

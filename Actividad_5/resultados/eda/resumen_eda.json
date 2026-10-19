@@ -1,0 +1,111 @@
+{
+  "por_clase": {
+    "teratoma": 336,
+    "quiste_chocolate": 336,
+    "ovario_normal": 267,
+    "cistoadenoma_seroso": 219,
+    "cistoadenoma_mucinoso": 104,
+    "tumor_celulas_teca": 88,
+    "quiste_simple": 66,
+    "seroso_alto_grado": 53
+  },
+  "diferencia_estandarizada_top": {
+    "int_std": -0.917,
+    "int_p90": -0.624,
+    "n_regiones": 0.487,
+    "int_curtosis": 0.486,
+    "int_cv": -0.47,
+    "glcm_correlation": -0.442,
+    "int_asimetria": 0.38,
+    "glcm_contrast": -0.378
+  },
+  "pares_muy_correlacionados": [
+    {
+      "a": "int_media",
+      "b": "int_mediana",
+      "r": 0.986
+    },
+    {
+      "a": "perimetro_rel",
+      "b": "eje_mayor_rel",
+      "r": 0.972
+    },
+    {
+      "a": "glcm_energy",
+      "b": "glcm_ASM",
+      "r": 0.964
+    },
+    {
+      "a": "area_rel",
+      "b": "perimetro_rel",
+      "r": 0.961
+    },
+    {
+      "a": "area_rel",
+      "b": "eje_menor_rel",
+      "r": 0.96
+    },
+    {
+      "a": "area_rel",
+      "b": "eje_mayor_rel",
+      "r": 0.945
+    },
+    {
+      "a": "perimetro_rel",
+      "b": "eje_menor_rel",
+      "r": 0.941
+    },
+    {
+      "a": "contraste_borde",
+      "b": "razon_borde",
+      "r": 0.932
+    },
+    {
+      "a": "glcm_dissimilarity",
+      "b": "glcm_homogeneity",
+      "r": -0.93
+    },
+    {
+      "a": "int_entropia",
+      "b": "glcm_energy",
+      "r": -0.915
+    },
+    {
+      "a": "int_media",
+      "b": "int_p90",
+      "r": 0.905
+    }
+  ],
+  "pct_atipicos": {
+    "glcm_ASM": 13.3,
+    "glcm_energy": 8.3,
+    "frac_doppler": 8.2,
+    "int_cv": 6.5,
+    "int_curtosis": 6.4,
+    "solidez": 5.4,
+    "glcm_contrast": 5.4,
+    "glcm_correlation": 4.6,
+    "int_entropia": 3.6,
+    "extension": 3.5,
+    "razon_borde": 3.3,
+    "circularidad": 3.1,
+    "relacion_aspecto": 2.8,
+    "area_rel": 1.9,
+    "int_asimetria": 1.6,
+    "int_std": 1.6,
+    "int_p10": 1.3,
+    "n_regiones": 1.3,
+    "int_mediana": 1.0,
+    "int_media": 0.9,
+    "excentricidad": 0.8,
+    "contraste_borde": 0.6,
+    "glcm_dissimilarity": 0.4,
+    "eje_mayor_rel": 0.3,
+    "eje_menor_rel": 0.3,
+    "int_p90": 0.2,
+    "perimetro_rel": 0.1,
+    "glcm_homogeneity": 0.0
+  },
+  "filas_con_algun_atipico_pct": 40.2,
+  "frac_doppler_imagenes_con_color_pct": 30.0
+}

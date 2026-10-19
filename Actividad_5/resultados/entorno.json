@@ -1,0 +1,8 @@
+{
+  "python": "3.13.5",
+  "sklearn": "1.9.1",
+  "mlflow": "3.17.1",
+  "sistema": "Windows-11-10.0.26200-SP0",
+  "tracking_uri": "sqlite:///C:/Proyectos/AI/OVARA/Actividad_5/mlflow.db",
+  "experimento": "OVARA-Actividad5-Endometrioma-MMOTU"
+}

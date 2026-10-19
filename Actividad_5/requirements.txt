@@ -1,0 +1,11 @@
+# OVARA - Actividad 5 (Python 3.11-3.13). No requiere GPU.
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+scikit-learn==1.9.1     # versión fijada: los resultados de Random Forest cambian entre versiones
+scikit-image>=0.22
+pillow>=10.0
+matplotlib>=3.8
+mlflow==3.17.1
+gdown>=5.1          # solo para descargar MMOTU en Colab
+ipykernel>=6.29

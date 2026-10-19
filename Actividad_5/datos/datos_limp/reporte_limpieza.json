@@ -1,0 +1,30 @@
+{
+  "registros_iniciales": 1469,
+  "descartes": {},
+  "correcciones": {
+    "infinitos_a_nulo": 0,
+    "nulos_imputados_mediana_train": 0
+  },
+  "registros_finales": 1469,
+  "n_caracteristicas": 30,
+  "por_split": {
+    "test": {
+      "total": 469,
+      "endometriomas": 110
+    },
+    "train": {
+      "total": 1000,
+      "endometriomas": 226
+    }
+  },
+  "por_clase": {
+    "quiste_chocolate": 336,
+    "teratoma": 336,
+    "ovario_normal": 267,
+    "cistoadenoma_seroso": 219,
+    "cistoadenoma_mucinoso": 104,
+    "tumor_celulas_teca": 88,
+    "quiste_simple": 66,
+    "seroso_alto_grado": 53
+  }
+}

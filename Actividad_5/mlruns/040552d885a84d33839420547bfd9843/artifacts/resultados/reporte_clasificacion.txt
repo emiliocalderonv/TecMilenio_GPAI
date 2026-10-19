@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+ Otra lesión      0.884     0.933     0.908       359
+Endometrioma      0.733     0.600     0.660       110
+
+    accuracy                          0.855       469
+   macro avg      0.809     0.767     0.784       469
+weighted avg      0.849     0.855     0.850       469

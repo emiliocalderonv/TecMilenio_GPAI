@@ -1,1 +1,13 @@
 
+Los datasets se encuentran de igual forma en sus respectivas ligas:
+Ultrasonidos:
+MMOTU:
+https://drive.google.com/drive/folders/1c5n0fVKrM9-SZE1kacTXPt1pt844iAs1
+
+Laparoscopía
+
+GLENDA v1.5:
+https://ftp.itec.aau.at/datasets/GLENDA/downloads/Glenda_v1.5_classes.zip
+
+ENID:
+https://ftp.itec.aau.at/datasets/ENID/downloads/datasets/ENID_v1.0_dataset.zip

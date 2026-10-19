@@ -1,0 +1,58 @@
+artifact_path: file:///C:/Proyectos/AI/OVARA/Actividad_5/mlruns/models/m-84737c8fa6a349d684107ca4dbb9f3e4/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.1
+    skops_trusted_types:
+    - numpy.dtype
+    - sklearn.tree._tree.Tree
+is_signature_from_type_hint: false
+mlflow_version: 3.17.1
+model_id: m-84737c8fa6a349d684107ca4dbb9f3e4
+model_size_bytes: 18908501
+model_uuid: m-84737c8fa6a349d684107ca4dbb9f3e4
+prompts: null
+run_id: 040552d885a84d33839420547bfd9843
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "area_rel", "required": true}, {"type": "double",
+    "name": "n_regiones", "required": true}, {"type": "double", "name": "perimetro_rel",
+    "required": true}, {"type": "double", "name": "circularidad", "required": true},
+    {"type": "double", "name": "solidez", "required": true}, {"type": "double", "name":
+    "extension", "required": true}, {"type": "double", "name": "excentricidad", "required":
+    true}, {"type": "double", "name": "eje_mayor_rel", "required": true}, {"type":
+    "double", "name": "eje_menor_rel", "required": true}, {"type": "double", "name":
+    "relacion_aspecto", "required": true}, {"type": "double", "name": "int_media",
+    "required": true}, {"type": "double", "name": "int_std", "required": true}, {"type":
+    "double", "name": "int_mediana", "required": true}, {"type": "double", "name":
+    "int_p10", "required": true}, {"type": "double", "name": "int_p90", "required":
+    true}, {"type": "double", "name": "int_cv", "required": true}, {"type": "double",
+    "name": "int_asimetria", "required": true}, {"type": "double", "name": "int_curtosis",
+    "required": true}, {"type": "double", "name": "int_entropia", "required": true},
+    {"type": "double", "name": "contraste_borde", "required": true}, {"type": "double",
+    "name": "razon_borde", "required": true}, {"type": "double", "name": "glcm_contrast",
+    "required": true}, {"type": "double", "name": "glcm_dissimilarity", "required":
+    true}, {"type": "double", "name": "glcm_homogeneity", "required": true}, {"type":
+    "double", "name": "glcm_energy", "required": true}, {"type": "double", "name":
+    "glcm_correlation", "required": true}, {"type": "double", "name": "glcm_ASM",
+    "required": true}, {"type": "double", "name": "frac_doppler", "required": true},
+    {"type": "double", "name": "img_alto", "required": true}, {"type": "double", "name":
+    "img_ancho", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-10-19 00:57:00.916521'

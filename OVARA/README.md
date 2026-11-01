@@ -48,11 +48,35 @@ flowchart LR
 
 ## Inicio rápido
 
+> ¿Primera vez y sin nada instalado? Sigue la guía paso a paso **[EJECUCION.md](EJECUCION.md)**.
+
+### Opción rápida: todo en un solo paso
+
+Después de clonar el repositorio, entra a la carpeta `OVARA` y ejecuta:
+
+```powershell
+iniciar_demo.bat               # Windows (doble clic también funciona)
+./iniciar_demo.sh              # Linux / macOS
+```
+
+El script hace lo siguiente:
+
+1. Verifica Docker y Python.
+2. Enciende Docker Desktop si está apagado.
+3. Descarga y verifica los pesos del modelo, solo la primera vez.
+4. Construye y enciende los contenedores.
+5. Espera a que el modelo cargue.
+6. Abre el navegador en http://localhost:3000.
+
+Para correr además todas las pruebas, usa `iniciar_demo.bat evidencias`. Para detener el demo, usa `detener_demo.bat`.
+
+Los pasos manuales equivalentes están a continuación.
+
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/<usuario>/ovara-demo.git
-cd ovara-demo
+git clone https://github.com/emiliocalderonv/TecMilenio_GPAI.git
+cd TecMilenio_GPAI/OVARA
 ```
 
 ### 2. Obtener los pesos del modelo (~400 MB)
@@ -60,7 +84,7 @@ cd ovara-demo
 **Opción A. Descargarlos del Release de GitHub.** Es lo normal para quien clona el repo:
 
 ```bash
-python scripts/descargar_modelos.py --url https://github.com/<usuario>/ovara-demo/releases/download/v1.0.0/ovara_modelos_v1.0.0.zip
+python scripts/descargar_modelos.py --url https://github.com/emiliocalderonv/TecMilenio_GPAI/releases/download/ovara-v1.0.0/ovara_modelos_v1.0.0.zip
 ```
 
 **Opción B. Exportarlos desde el experimento original.** Solo funciona en el equipo donde se entrenó y requiere PyTorch:
@@ -148,42 +172,46 @@ El reporte queda en `evidencias/<fecha>/REPORTE.md`, con una copia en `evidencia
 7. **Paridad (opcional):** el contenedor reproduce las 469 predicciones del modelo validado. Compara alertas idénticas, diferencia de probabilidad y métricas.
 8. **Bitácoras:** registros de ambos contenedores.
 
-Además, **GitHub Actions** (`.github/workflows/ci.yml`) corre en cada `push`: las pruebas del backend y del frontend, la construcción de ambas imágenes y la prueba de punta a punta en modo prueba. Las evidencias quedan como artefacto de la ejecución.
+Además, **GitHub Actions** (`.github/workflows/ovara-ci.yml`, en la raíz del repo) corre en cada `push` que toque `OVARA/`: las pruebas del backend y del frontend, la construcción de ambas imágenes y la prueba de punta a punta en modo prueba. Las evidencias quedan como artefacto de la ejecución.
 
 ## Publicar los pesos como Release de GitHub
 
 `exportar_modelo.py` genera `ovara_modelos_v1.0.0.zip` en la raíz del repo. Ese zip está en `.gitignore` y no se sube con `git push`. Súbelo así:
 
-- **Web:** en GitHub, ve a *Releases* → *Draft a new release* → tag `v1.0.0` → adjunta el zip → *Publish*.
+- **Web:** en GitHub, ve a *Releases* → *Draft a new release* → tag `ovara-v1.0.0` → adjunta el zip → *Publish*.
 - **CLI:**
 
   ```bash
-  gh release create v1.0.0 ovara_modelos_v1.0.0.zip --title "OVARA modelo v1.0.0" --notes "U-Net + ensamble de 20 CNN, umbral 0.28"
+  gh release create ovara-v1.0.0 ovara_modelos_v1.0.0.zip --title "OVARA modelo v1.0.0" --notes "U-Net + ensamble de 20 CNN, umbral 0.28"
   ```
 
 ## Estructura
 
 ```
-ovara-demo/
-├── docker-compose.yml        # orquesta backend + frontend
-├── .env.example              # puertos, modo prueba, hilos
-├── backend/                  # FastAPI + PyTorch CPU
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   ├── app/                  # main.py (API), inferencia.py (flujo), arquitecturas.py (redes)
-│   ├── tests/test_api.py
-│   └── paridad.py            # comparación con el modelo validado
-├── frontend/                 # Node.js + Express
-│   ├── Dockerfile
-│   ├── package.json, package-lock.json
-│   ├── server.js
-│   ├── public/               # index.html, app.js, styles.css
-│   └── test/server.test.js
-├── scripts/                  # exportar / descargar pesos, copiar ejemplos, evidencias
-├── modelos/                  # pesos (no versionados; se montan en el backend)
-├── ejemplos/                 # imágenes de prueba (no versionadas)
-├── evidencias/               # reportes de integración
-└── .github/workflows/ci.yml
+TecMilenio_GPAI/
+├── .github/workflows/ovara-ci.yml   # CI (GitHub solo lee workflows en la raíz)
+└── OVARA/
+    ├── docker-compose.yml        # orquesta backend + frontend
+    ├── .env.example              # puertos, modo prueba, hilos
+    ├── backend/                  # FastAPI + PyTorch CPU
+    │   ├── Dockerfile
+    │   ├── requirements.txt
+    │   ├── app/                  # main.py (API), inferencia.py (flujo), arquitecturas.py (redes)
+    │   ├── tests/test_api.py
+    │   └── paridad.py            # comparación con el modelo validado
+    ├── frontend/                 # Node.js + Express
+    │   ├── Dockerfile
+    │   ├── package.json, package-lock.json
+    │   ├── server.js
+    │   ├── public/               # index.html, app.js, styles.css
+    │   └── test/server.test.js
+    ├── scripts/                  # exportar / descargar pesos, copiar ejemplos, evidencias
+    ├── modelos/                  # pesos (no versionados; se montan en el backend)
+    ├── ejemplos/                 # 16 imágenes de prueba MMOTU + etiquetas.csv
+    ├── evidencias/               # reportes de integración
+    ├── iniciar_demo.bat / .sh   # todo en un solo paso
+    ├── detener_demo.bat
+    └── publicar_en_repo.bat     # copia este proyecto a <repo>/OVARA y coloca el workflow
 ```
 
 ## Solución de problemas

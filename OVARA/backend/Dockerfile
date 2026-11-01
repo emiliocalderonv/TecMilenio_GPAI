@@ -1,4 +1,19 @@
+# =============================================================================
 # OVARA · backend de inferencia (FastAPI + PyTorch CPU)
+#
+# Forma recomendada de ejecutarlo: junto con el frontend, desde la carpeta OVARA
+#     iniciar_demo.bat                      (todo en un paso)
+#     docker compose up --build -d          (manual)  ->  http://localhost:3000
+#
+# Ejecutarlo solo (sin frontend), desde la carpeta OVARA:
+#   1) Pesos del modelo:   python scripts/descargar_modelos.py
+#   2) Construir:          docker build -t ovara-backend:1.0.0 ./backend
+#   3) Ejecutar (Windows): docker run --rm -p 8000:8000 -v "%cd%\modelos:/modelos:ro" ovara-backend:1.0.0
+#      (Linux / macOS):    docker run --rm -p 8000:8000 -v "$PWD/modelos:/modelos:ro" ovara-backend:1.0.0
+#   4) Probar:             http://localhost:8000/docs   (POST /predict con una imagen)
+#   Sin pesos (solo para probar la integración):  docker run --rm -p 8000:8000 -e OVARA_MODO_PRUEBA=1 ovara-backend:1.0.0
+#   Pruebas unitarias:     docker run --rm -e OVARA_MODO_PRUEBA=1 ovara-backend:1.0.0 python -m pytest -q tests
+# =============================================================================
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

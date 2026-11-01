@@ -1,0 +1,11 @@
+$ docker compose run --rm --no-deps -e OVARA_MODO_PRUEBA=1 -e OVARA_MODELOS=/sin_modelos backend python -m pytest -q -p no:cacheprovider tests
+# código de salida: 0 · 6.2 s
+
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+../usr/local/lib/python3.12/site-packages/starlette/testclient.py:51
+  /usr/local/lib/python3.12/site-packages/starlette/testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 4.01s

@@ -1,0 +1,11 @@
+$ docker compose up -d
+# código de salida: 0 · 1.0 s
+
+ Container ovara-backend  Creating
+ Container ovara-backend  Created
+ Container ovara-frontend  Creating
+ Container ovara-frontend  Created
+ Container ovara-backend  Starting
+ Container ovara-backend  Started
+ Container ovara-frontend  Starting
+ Container ovara-frontend  Started

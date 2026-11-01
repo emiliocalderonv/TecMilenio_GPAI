@@ -1,0 +1,124 @@
+$ docker compose build
+# código de salida: 0 · 12.7 s
+
+#1 [internal] load local bake definitions
+#1 reading from stdin 740B done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.01kB done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 508B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#4 ...
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 10.9s
+
+#4 [frontend internal] load metadata for docker.io/library/node:22-alpine
+#4 DONE 10.9s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 81B 0.0s done
+#6 DONE 0.1s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 68B 0.0s done
+#7 DONE 0.1s
+
+#8 [backend internal] load build context
+#8 DONE 0.0s
+
+#9 [backend 1/9] FROM docker.io/library/python:3.12-slim@sha256:aa943ce411423c7582288f18707ff66eddcbaeb510502d747a72aeb34f30d159
+#9 resolve docker.io/library/python:3.12-slim@sha256:aa943ce411423c7582288f18707ff66eddcbaeb510502d747a72aeb34f30d159
+#9 resolve docker.io/library/python:3.12-slim@sha256:aa943ce411423c7582288f18707ff66eddcbaeb510502d747a72aeb34f30d159 0.1s done
+#9 DONE 0.1s
+
+#10 [frontend internal] load build context
+#10 transferring context: 297B done
+#10 DONE 0.0s
+
+#11 [frontend 1/7] FROM docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914
+#11 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914
+#11 resolve docker.io/library/node:22-alpine@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.1s done
+#11 DONE 0.1s
+
+#12 [frontend 4/7] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#12 CACHED
+
+#13 [frontend 5/7] COPY server.js ./
+#13 CACHED
+
+#14 [frontend 6/7] COPY public ./public
+#14 CACHED
+
+#15 [frontend 2/7] WORKDIR /app
+#15 CACHED
+
+#16 [frontend 3/7] COPY package.json package-lock.json ./
+#16 CACHED
+
+#17 [frontend 7/7] COPY test ./test
+#17 CACHED
+
+#8 [backend internal] load build context
+#8 transferring context: 293B done
+#8 DONE 0.0s
+
+#18 [backend 5/9] RUN pip install -r requirements.txt
+#18 CACHED
+
+#19 [backend 8/9] COPY paridad.py .
+#19 CACHED
+
+#20 [backend 2/9] WORKDIR /app
+#20 CACHED
+
+#21 [backend 7/9] COPY tests ./tests
+#21 CACHED
+
+#22 [backend 4/9] COPY requirements.txt .
+#22 CACHED
+
+#23 [backend 6/9] COPY app ./app
+#23 CACHED
+
+#24 [backend 3/9] RUN pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 torchvision==0.23.0
+#24 CACHED
+
+#25 [backend 9/9] RUN useradd --create-home --uid 1000 ovara && chown -R ovara /app
+#25 CACHED
+
+#26 [backend] exporting to image
+#26 exporting layers 0.0s done
+#26 exporting manifest sha256:e1230818977bfe4729d4db0740f30e7743294df64da0a74936cdb2ad54e9804f done
+#26 exporting config sha256:6ff0b82f51520acee640c5ff434cb130eaffea2a1433b5ddb05ebae529e56fed 0.0s done
+#26 exporting attestation manifest sha256:2531a8dc132cbabd2ea3107680c068e10a673733f74c7de1ff43d94c35916fc7
+#26 exporting attestation manifest sha256:2531a8dc132cbabd2ea3107680c068e10a673733f74c7de1ff43d94c35916fc7 0.2s done
+#26 exporting manifest list sha256:31d164dacff8aa2c7ff784ce2ad39813d41484daa3041619f3469e1394a38570 0.0s done
+#26 naming to docker.io/library/ovara-backend:1.0.0
+#26 naming to docker.io/library/ovara-backend:1.0.0 done
+#26 unpacking to docker.io/library/ovara-backend:1.0.0 0.0s done
+#26 DONE 0.4s
+
+#27 [frontend] exporting to image
+#27 exporting layers done
+#27 exporting manifest sha256:d54be15d590e421644f17fe61a376e5c8529303410b17aae80164021a7261ac4 done
+#27 exporting config sha256:e7ff0f522b51ce875051f4c08dd3ab34aa34c0ead0701687be08c54f92b15323 done
+#27 exporting attestation manifest sha256:6e045857f96683578c6b4418aee89dac67a1c6a2dc52c1de1b192a4fe924a1ac 0.1s done
+#27 exporting manifest list sha256:c5a79b21746356068c85f32102bb9af40a0fd35c66832fbfc1c04b0ededd674b 0.1s done
+#27 naming to docker.io/library/ovara-frontend:1.0.0 0.0s done
+#27 unpacking to docker.io/library/ovara-frontend:1.0.0 0.1s done
+#27 DONE 0.4s
+
+#28 [frontend] resolving provenance for metadata file
+#28 DONE 0.0s
+
+#29 [backend] resolving provenance for metadata file
+#29 DONE 0.0s
+ backend  Built
+ frontend  Built

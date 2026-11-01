@@ -147,8 +147,24 @@ def main():
     for clave in ("docker", "docker_compose", "git_commit"):
         entorno.setdefault(clave, "n/d")
     (dir_ev / "entorno.json").write_text(json.dumps(entorno, indent=2, ensure_ascii=False), encoding="utf-8")
+    if not args.solo_integracion and entorno["docker"] == "n/d":
+        print("\n✗ El motor de Docker no responde (Docker Desktop está cerrado o todavía iniciando).\n"
+              "  1. Abre Docker Desktop y espera a que diga 'Engine running'.\n"
+              "  2. Comprueba con:  docker info\n"
+              "  3. Vuelve a correr este script.")
+        shutil.rmtree(dir_ev, ignore_errors=True)
+        sys.exit(2)
     if not args.solo_integracion:
         check("Docker disponible", entorno["docker"] != "n/d", f"Docker {entorno['docker']} · Compose {entorno['docker_compose']}")
+
+    # comprobación previa: sin pesos (y sin modo prueba) el backend nunca quedará listo
+    if (not args.solo_integracion and os.getenv("OVARA_MODO_PRUEBA", "0") != "1"
+            and not (RAIZ / "modelos" / "modelo_ovara.json").exists()):
+        print("\n✗ No hay pesos en la carpeta 'modelos' (falta modelo_ovara.json).\n"
+              "  Descárgalos primero:  python scripts/descargar_modelos.py\n"
+              "  o prueba sin pesos:   $env:OVARA_MODO_PRUEBA=\"1\"  (PowerShell)")
+        shutil.rmtree(dir_ev, ignore_errors=True)
+        sys.exit(2)
 
     # 2. construcción
     print("2/8 Construcción de imágenes")
@@ -175,8 +191,8 @@ def main():
     # 4. despliegue
     print("4/8 Despliegue")
     if not args.solo_integracion:
-        c, _, _ = correr(["docker", "compose", "up", "-d"], dir_ev / "05_up.log")
-        check("docker compose up -d", c == 0)
+        c, _, _ = correr(["docker", "compose", "up", "-d", "--force-recreate"], dir_ev / "05_up.log")
+        check("docker compose up -d --force-recreate", c == 0)
     t0, salud = time.time(), {}
     while time.time() - t0 < args.espera:
         st, salud, _ = http("GET", base + "/api/salud", timeout=5)

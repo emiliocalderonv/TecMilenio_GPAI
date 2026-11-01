@@ -1,0 +1,8 @@
+{
+  "fecha": "2026-11-01T15:55:14",
+  "sistema": "Windows-11-10.0.26200-SP0",
+  "python_host": "3.13.5",
+  "docker": "28.3.0",
+  "docker_compose": "2.38.1-desktop.1",
+  "git_commit": "e3944e8"
+}

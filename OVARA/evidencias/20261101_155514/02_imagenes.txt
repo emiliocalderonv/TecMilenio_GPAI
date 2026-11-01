@@ -1,0 +1,2 @@
+ovara-backend:1.0.0	1.78GB	53 minutes ago
+ovara-frontend:1.0.0	249MB	54 minutes ago

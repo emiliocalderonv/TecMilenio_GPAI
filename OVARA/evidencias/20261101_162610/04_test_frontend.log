@@ -1,0 +1,49 @@
+$ docker compose run --rm --no-deps frontend npm test --silent
+# código de salida: 0 · 9.2 s
+
+TAP version 13
+# Subtest: sirve la interfaz
+ok 1 - sirve la interfaz
+  ---
+  duration_ms: 43.045287
+  type: 'test'
+  ...
+# Subtest: reporta la salud del backend
+ok 2 - reporta la salud del backend
+  ---
+  duration_ms: 10.339311
+  type: 'test'
+  ...
+# Subtest: lista ejemplos con su etiqueta
+ok 3 - lista ejemplos con su etiqueta
+  ---
+  duration_ms: 3.835912
+  type: 'test'
+  ...
+# Subtest: reenvía la imagen al backend y agrega la etiqueta real
+ok 4 - reenvía la imagen al backend y agrega la etiqueta real
+  ---
+  duration_ms: 19.053821
+  type: 'test'
+  ...
+# Subtest: rechaza archivos que no son imagen
+ok 5 - rechaza archivos que no son imagen
+  ---
+  duration_ms: 5.999715
+  type: 'test'
+  ...
+# Subtest: pide la imagen si no viene
+ok 6 - pide la imagen si no viene
+  ---
+  duration_ms: 4.821637
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 276.751248

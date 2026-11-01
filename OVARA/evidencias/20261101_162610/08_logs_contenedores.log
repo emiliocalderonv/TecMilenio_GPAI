@@ -1,0 +1,77 @@
+$ docker compose logs --no-color --timestamps
+# código de salida: 0 · 0.2 s
+
+ovara-frontend  | 2026-11-01T22:26:27.851589130Z OVARA frontend en http://localhost:3000  →  backend http://backend:8000
+ovara-backend   | 2026-11-01T22:26:29.619403039Z INFO:     Started server process [1]
+ovara-backend   | 2026-11-01T22:26:29.619433017Z INFO:     Waiting for application startup.
+ovara-backend   | 2026-11-01T22:26:37.500395594Z 2026-11-01 22:26:37,500 INFO Modelo cargado: 20 redes, umbral 0.28, 7.9 s
+ovara-backend   | 2026-11-01T22:26:37.501323639Z INFO:     Application startup complete.
+ovara-backend   | 2026-11-01T22:26:37.501368960Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+ovara-backend   | 2026-11-01T22:26:38.012493047Z INFO:     127.0.0.1:34352 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:39.982200880Z INFO:     172.20.0.3:44406 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:40.154301117Z INFO:     172.20.0.3:44406 - "GET /info HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:40.158227607Z INFO:     172.20.0.1:52542 - "GET /docs HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:42.146179870Z 2026-11-01 22:26:42,145 INFO predict 12.JPG → p=0.992 alerta=True (1519 ms)
+ovara-backend   | 2026-11-01T22:26:42.147435447Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:43.943730639Z 2026-11-01 22:26:43,941 INFO predict 88.JPG → p=0.613 alerta=True (1460 ms)
+ovara-backend   | 2026-11-01T22:26:43.943763234Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:45.998292263Z 2026-11-01 22:26:45,998 INFO predict 383.JPG → p=0.008 alerta=False (1454 ms)
+ovara-backend   | 2026-11-01T22:26:45.999959079Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:47.867053109Z 2026-11-01 22:26:47,866 INFO predict 494.JPG → p=0.147 alerta=False (1448 ms)
+ovara-backend   | 2026-11-01T22:26:47.867992388Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:49.687418320Z 2026-11-01 22:26:49,687 INFO predict 732.JPG → p=0.888 alerta=True (1448 ms)
+ovara-backend   | 2026-11-01T22:26:49.688833911Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:51.588400664Z 2026-11-01 22:26:51,588 INFO predict 778.JPG → p=0.353 alerta=True (1461 ms)
+ovara-backend   | 2026-11-01T22:26:51.589838643Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:53.256245167Z INFO:     127.0.0.1:45500 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:53.674780749Z 2026-11-01 22:26:53,674 INFO predict 825.JPG → p=0.991 alerta=True (1465 ms)
+ovara-backend   | 2026-11-01T22:26:53.677170616Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:55.585728856Z 2026-11-01 22:26:55,585 INFO predict 842.JPG → p=0.938 alerta=True (1452 ms)
+ovara-backend   | 2026-11-01T22:26:55.587527212Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:57.365119228Z 2026-11-01 22:26:57,364 INFO predict 948.JPG → p=0.006 alerta=False (1450 ms)
+ovara-backend   | 2026-11-01T22:26:57.366083741Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:26:59.153641116Z 2026-11-01 22:26:59,153 INFO predict 1081.JPG → p=0.062 alerta=False (1474 ms)
+ovara-backend   | 2026-11-01T22:26:59.155008403Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:01.048753720Z 2026-11-01 22:27:01,048 INFO predict 1171.JPG → p=0.345 alerta=True (1449 ms)
+ovara-backend   | 2026-11-01T22:27:01.049784381Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:03.257638593Z 2026-11-01 22:27:03,256 INFO predict 1234.JPG → p=0.324 alerta=True (1450 ms)
+ovara-backend   | 2026-11-01T22:27:03.260114561Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:05.295035181Z 2026-11-01 22:27:05,294 INFO predict 1244.JPG → p=0.016 alerta=False (1448 ms)
+ovara-backend   | 2026-11-01T22:27:05.296613730Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:07.261359306Z 2026-11-01 22:27:07,261 INFO predict 1329.JPG → p=0.806 alerta=True (1450 ms)
+ovara-backend   | 2026-11-01T22:27:07.262485149Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:08.509927844Z INFO:     127.0.0.1:40236 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:09.151231871Z 2026-11-01 22:27:09,150 INFO predict 1384.JPG → p=0.130 alerta=False (1472 ms)
+ovara-backend   | 2026-11-01T22:27:09.152458830Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:10.744723326Z 2026-11-01 22:27:10,744 INFO predict 1413.JPG → p=0.064 alerta=False (1453 ms)
+ovara-backend   | 2026-11-01T22:27:10.745455956Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:10.786883383Z INFO:     172.20.0.3:44406 - "POST /predict?gradcam=true HTTP/1.1" 422 Unprocessable Entity
+ovara-backend   | 2026-11-01T22:27:23.911461449Z INFO:     127.0.0.1:58770 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:39.306707008Z INFO:     127.0.0.1:59140 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:27:54.629013798Z INFO:     127.0.0.1:36696 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:28:10.020183812Z INFO:     127.0.0.1:57692 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:28:25.376264685Z INFO:     127.0.0.1:56336 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:28:40.788878536Z INFO:     127.0.0.1:47832 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:28:56.162520106Z INFO:     127.0.0.1:40770 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:29:11.516502983Z INFO:     127.0.0.1:41264 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:29:26.743662469Z INFO:     127.0.0.1:56472 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:29:42.126701907Z INFO:     127.0.0.1:46516 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:29:57.503458476Z INFO:     127.0.0.1:48468 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:30:12.749671699Z INFO:     127.0.0.1:59068 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:30:28.059537247Z INFO:     127.0.0.1:39028 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:30:43.445858993Z INFO:     127.0.0.1:45116 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:30:58.799258545Z INFO:     127.0.0.1:40796 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:31:14.048533109Z INFO:     127.0.0.1:45282 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:31:29.273789278Z INFO:     127.0.0.1:42596 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:31:44.685771120Z INFO:     127.0.0.1:60108 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:31:59.947877226Z INFO:     127.0.0.1:33564 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:32:15.337849331Z INFO:     127.0.0.1:51412 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:32:30.628234714Z INFO:     127.0.0.1:51950 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:32:46.029894956Z INFO:     127.0.0.1:57870 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:33:01.608342358Z INFO:     127.0.0.1:36220 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:33:17.022170273Z INFO:     127.0.0.1:43426 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:33:32.435358919Z INFO:     127.0.0.1:55774 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:33:47.775736212Z INFO:     127.0.0.1:34986 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:34:03.147346255Z INFO:     127.0.0.1:56314 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:34:18.549915599Z INFO:     127.0.0.1:51264 - "GET /health HTTP/1.1" 200 OK
+ovara-backend   | 2026-11-01T22:34:33.787848667Z INFO:     127.0.0.1:50490 - "GET /health HTTP/1.1" 200 OK

@@ -1,0 +1,6 @@
+$ docker compose ps
+# código de salida: 0 · 0.2 s
+
+NAME             IMAGE                  COMMAND                  SERVICE    CREATED          STATUS                            PORTS
+ovara-backend    ovara-backend:1.0.0    "uvicorn app.main:ap…"   backend    10 seconds ago   Up 9 seconds (health: starting)   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+ovara-frontend   ovara-frontend:1.0.0   "docker-entrypoint.s…"   frontend   10 seconds ago   Up 9 seconds (healthy)            0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp

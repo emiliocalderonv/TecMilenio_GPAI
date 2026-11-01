@@ -1,0 +1,57 @@
+# OVARA · Integración continua. Va en la RAÍZ del repo TecMilenio_GPAI (.github/workflows/),
+# porque GitHub solo lee workflows ahí. Solo se ejecuta cuando cambia algo en OVARA/.
+# Los pesos reales no están en el repo: en CI el backend arranca con OVARA_MODO_PRUEBA=1 (pesos aleatorios)
+# para validar que todas las piezas se integran. La paridad con el modelo real se corre localmente.
+name: OVARA CI
+
+on:
+  push:
+    branches: [main]
+    paths: ["OVARA/**", ".github/workflows/ovara-ci.yml"]
+  pull_request:
+    paths: ["OVARA/**", ".github/workflows/ovara-ci.yml"]
+  workflow_dispatch:
+
+jobs:
+  backend:
+    name: Backend · pytest
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: OVARA/backend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 torchvision==0.23.0
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+        env: { OVARA_MODO_PRUEBA: "1", OVARA_MODELOS: /sin_modelos }
+
+  frontend:
+    name: Frontend · node --test
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: OVARA/frontend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: OVARA/frontend/package-lock.json }
+      - run: npm ci
+      - run: npm test
+
+  integracion:
+    name: Docker · integración de punta a punta
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: OVARA } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Construir, desplegar y probar (modo prueba)
+        env: { OVARA_MODO_PRUEBA: "1" }
+        run: python scripts/evidencias.py --bajar
+      - name: Publicar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ovara-evidencias-integracion
+          path: OVARA/evidencias/

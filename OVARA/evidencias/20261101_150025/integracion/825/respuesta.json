@@ -1,0 +1,40 @@
+{
+  "archivo": "825.JPG",
+  "probabilidad": 0.9909,
+  "umbral": 0.28,
+  "alerta": true,
+  "mensaje": "Alerta: hallazgos compatibles con endometrioma. Se sugiere revisión del especialista.",
+  "acuerdo": {
+    "redes_en_alerta": 20,
+    "redes_total": 20,
+    "desviacion_probabilidades": 0.0152
+  },
+  "lesion": {
+    "detectada": true,
+    "regiones_detectadas": 1,
+    "area_porcentaje": 14.77,
+    "caja_recorte": [
+      264,
+      58,
+      796,
+      590
+    ]
+  },
+  "imagen": {
+    "ancho": 958,
+    "alto": 545,
+    "reducida": false
+  },
+  "tiempos_ms": {
+    "segmentacion": 143,
+    "clasificacion": 1308.1,
+    "total": 1451.2
+  },
+  "modo_prueba": false,
+  "aviso": "Demo académico (Tecmilenio · Gestión de Proyectos de IA). No es un dispositivo médico ni sustituye el juicio clínico. Modelo entrenado y evaluado solo con MMOTU (un centro); pendiente validación externa.",
+  "etiqueta_real": {
+    "clase": "quiste_chocolate",
+    "endometrioma": true
+  },
+  "tiempo_ida_vuelta_ms": 2044
+}

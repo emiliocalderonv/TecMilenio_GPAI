@@ -1,0 +1,10 @@
+{
+  "frontend": "ok",
+  "backend": {
+    "estado": "ok",
+    "version_api": "1.0.0",
+    "modelo_cargado": true,
+    "modo_prueba": false,
+    "error": null
+  }
+}

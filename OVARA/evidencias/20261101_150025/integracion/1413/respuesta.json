@@ -1,0 +1,40 @@
+{
+  "archivo": "1413.JPG",
+  "probabilidad": 0.0637,
+  "umbral": 0.28,
+  "alerta": false,
+  "mensaje": "Sin alerta de endometrioma en la lesión analizada.",
+  "acuerdo": {
+    "redes_en_alerta": 1,
+    "redes_total": 20,
+    "desviacion_probabilidades": 0.2054
+  },
+  "lesion": {
+    "detectada": true,
+    "regiones_detectadas": 1,
+    "area_porcentaje": 8.61,
+    "caja_recorte": [
+      119,
+      16,
+      307,
+      204
+    ]
+  },
+  "imagen": {
+    "ancho": 480,
+    "alto": 266,
+    "reducida": false
+  },
+  "tiempos_ms": {
+    "segmentacion": 135.6,
+    "clasificacion": 1299.7,
+    "total": 1435.3
+  },
+  "modo_prueba": false,
+  "aviso": "Demo académico (Tecmilenio · Gestión de Proyectos de IA). No es un dispositivo médico ni sustituye el juicio clínico. Modelo entrenado y evaluado solo con MMOTU (un centro); pendiente validación externa.",
+  "etiqueta_real": {
+    "clase": "cistoadenoma_seroso",
+    "endometrioma": false
+  },
+  "tiempo_ida_vuelta_ms": 1538
+}

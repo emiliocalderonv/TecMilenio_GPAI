@@ -1,0 +1,41 @@
+$ docker compose run --rm --no-deps --user root -v C:\Proyectos\AI\OVARA\datos_ini\MMOTU\OTU_2d:/datos:ro -v C:\Proyectos\AI\OVARA\Demo_OVARA\evidencias\referencia:/referencia:ro -v C:\Proyectos\AI\OVARA\Demo_OVARA\evidencias\20261101_150025:/salida backend python paridad.py --mmotu /datos --referencia /referencia/predicciones_validadas.csv --salida /salida/paridad.json
+# código de salida: 0 · 402.1 s
+
+Motor: 20 redes, umbral 0.28 | imágenes: 469
+  50/469
+  100/469
+  150/469
+  200/469
+  250/469
+  300/469
+  350/469
+  400/469
+  450/469
+{
+  "imagenes": 469,
+  "umbral": 0.28,
+  "segundos_totales": 393.8,
+  "ms_por_imagen": 839.6,
+  "diferencia_prob_max": 0.1189,
+  "diferencia_prob_media": 0.0005641791044776124,
+  "alertas_coinciden_%": 100.0,
+  "metricas_docker": {
+    "TP": 96,
+    "FP": 23,
+    "FN": 14,
+    "TN": 336,
+    "recall": 0.8727272727272727,
+    "precision": 0.8067226890756303,
+    "auc": 0.9307546214231451
+  },
+  "metricas_referencia": {
+    "TP": 96,
+    "FP": 23,
+    "FN": 14,
+    "TN": 336,
+    "recall": 0.8727272727272727,
+    "precision": 0.8067226890756303,
+    "auc": 0.9308938971891618
+  },
+  "veredicto": "PARIDAD OK"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ovara-frontend",
+  "version": "1.0.0",
+  "description": "OVARA demo: interfaz web (Node.js + Express) que envía ultrasonidos al backend de inferencia",
+  "main": "server.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/server.test.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "multer": "2.0.2"
+  }
+}

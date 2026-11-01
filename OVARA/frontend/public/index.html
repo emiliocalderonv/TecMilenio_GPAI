@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OVARA · Demo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%237a3e9d'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="marca">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>OVARA</h1>
+        <p>Apoyo a la detección de endometrioma en ultrasonido · demo</p>
+      </div>
+    </div>
+    <span id="estado" class="pastilla pastilla--cargando">Conectando…</span>
+  </header>
+
+  <div id="avisoPrueba" class="aviso aviso--prueba" hidden>
+    Modo prueba: el backend usa pesos aleatorios. Sirve para probar la integración, no para interpretar resultados.
+  </div>
+  <div id="avisoError" class="aviso aviso--error" hidden></div>
+
+  <main class="rejilla">
+    <section class="tarjeta">
+      <h2><span class="paso">1</span> Elige un ultrasonido</h2>
+      <label id="zona" class="zona" for="archivo">
+        <input id="archivo" type="file" accept="image/*" hidden>
+        <img id="vistaPrevia" alt="" hidden>
+        <span id="zonaTexto">Arrastra una imagen aquí o <u>haz clic para buscarla</u><br><small>JPG o PNG · máximo 10 MB</small></span>
+      </label>
+      <label class="opcion"><input id="gradcam" type="checkbox" checked> Mostrar dónde miró el modelo (Grad-CAM)</label>
+      <button id="analizar" class="boton" disabled>Analizar imagen</button>
+
+      <div id="bloqueEjemplos" hidden>
+        <h3>…o usa una imagen de prueba (MMOTU)</h3>
+        <div id="ejemplos" class="ejemplos"></div>
+      </div>
+    </section>
+
+    <section class="tarjeta" aria-live="polite">
+      <h2><span class="paso">2</span> Resultado</h2>
+      <div id="vacio" class="vacio">Aquí aparecerá el análisis.</div>
+      <div id="cargando" class="vacio" hidden><span class="giro"></span> Analizando… (localizando la lesión y consultando las redes)</div>
+
+      <div id="resultado" hidden>
+        <div id="veredicto" class="veredicto">
+          <strong id="veredictoTitulo"></strong>
+          <span id="veredictoTexto"></span>
+        </div>
+
+        <div class="medidor">
+          <div class="medidor__fila"><span>Probabilidad de endometrioma</span><b id="prob"></b></div>
+          <div class="medidor__barra"><div id="barra"></div><span id="marcaUmbral" class="medidor__umbral"></span></div>
+          <div class="medidor__pie"><span>0</span><span id="textoUmbral"></span><span>1</span></div>
+        </div>
+
+        <ul class="datos">
+          <li><span>Redes en alerta</span><b id="acuerdo"></b></li>
+          <li><span>Lesión localizada</span><b id="lesion"></b></li>
+          <li><span>Tiempo de análisis</span><b id="tiempo"></b></li>
+          <li id="filaReal" hidden><span>Diagnóstico real (MMOTU)</span><b id="real"></b></li>
+        </ul>
+
+        <div class="figuras">
+          <figure><img id="imgContorno" alt="Ultrasonido con la lesión localizada"><figcaption>Lesión localizada por la U-Net (amarillo) y zona analizada (azul)</figcaption></figure>
+          <figure><img id="imgRecorte" alt="Recorte analizado"><figcaption>Recorte que analizan las redes</figcaption></figure>
+          <figure id="figAtencion"><img id="imgAtencion" alt="Mapa de atención"><figcaption>Dónde miró el modelo (rojo = más peso)</figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="tarjeta tarjeta--ancha">
+    <h2>Cómo funciona y qué tan confiable es</h2>
+    <ol class="flujo">
+      <li><b>Localiza</b> la lesión con una red de segmentación (U-Net).</li>
+      <li><b>Recorta</b> la lesión con un margen de tejido alrededor.</li>
+      <li><b>Consulta</b> a <span id="nRedes">20</span> redes neuronales y promedia su opinión.</li>
+      <li><b>Alerta</b> si la probabilidad supera el umbral <span id="umbralFlujo">0.28</span>, elegido para no dejar pasar casos.</li>
+    </ol>
+    <div id="metricas" class="metricas"></div>
+    <p id="aviso" class="pie"></p>
+  </section>
+
+  <footer class="final">OVARA · Tecmilenio · Gestión de Proyectos de IA · <span id="versiones"></span></footer>
+  <script src="app.js"></script>
+</body>
+</html>

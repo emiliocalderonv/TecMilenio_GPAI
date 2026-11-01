@@ -1,0 +1,33 @@
+# OVARA · demo local
+#   docker compose up --build        →  http://localhost:3000
+services:
+  backend:
+    build: ./backend
+    image: ovara-backend:1.0.0
+    container_name: ovara-backend
+    environment:
+      OVARA_MODELOS: /modelos
+      OVARA_MODO_PRUEBA: ${OVARA_MODO_PRUEBA:-0}   # 1 = pesos aleatorios (solo para probar la integración)
+      OVARA_HILOS: ${OVARA_HILOS:-0}               # 0 = todos los núcleos
+    volumes:
+      - ./modelos:/modelos:ro
+    ports:
+      - "${PUERTO_API:-8000}:8000"                 # API y documentación en http://localhost:8000/docs
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    image: ovara-frontend:1.0.0
+    container_name: ovara-frontend
+    environment:
+      BACKEND_URL: http://backend:8000
+      EJEMPLOS_DIR: /ejemplos
+      PORT: 3000
+    volumes:
+      - ./ejemplos:/ejemplos:ro
+    ports:
+      - "${PUERTO:-3000}:3000"
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped

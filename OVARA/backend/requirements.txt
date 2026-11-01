@@ -1,0 +1,11 @@
+# PyTorch se instala aparte en el Dockerfile (versión CPU desde download.pytorch.org):
+#   torch==2.8.0  torchvision==0.23.0
+fastapi==0.116.1
+uvicorn==0.35.0
+python-multipart==0.0.20
+pillow==11.3.0
+numpy==2.2.6
+scipy==1.15.3
+# pruebas
+pytest==8.4.1
+httpx==0.28.1

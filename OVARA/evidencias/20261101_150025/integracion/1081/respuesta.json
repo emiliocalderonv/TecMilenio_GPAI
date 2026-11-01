@@ -1,0 +1,40 @@
+{
+  "archivo": "1081.JPG",
+  "probabilidad": 0.0616,
+  "umbral": 0.28,
+  "alerta": false,
+  "mensaje": "Sin alerta de endometrioma en la lesión analizada.",
+  "acuerdo": {
+    "redes_en_alerta": 2,
+    "redes_total": 20,
+    "desviacion_probabilidades": 0.1454
+  },
+  "lesion": {
+    "detectada": true,
+    "regiones_detectadas": 1,
+    "area_porcentaje": 2.71,
+    "caja_recorte": [
+      303,
+      73,
+      501,
+      271
+    ]
+  },
+  "imagen": {
+    "ancho": 956,
+    "alto": 528,
+    "reducida": false
+  },
+  "tiempos_ms": {
+    "segmentacion": 146,
+    "clasificacion": 1321.6,
+    "total": 1467.6
+  },
+  "modo_prueba": false,
+  "aviso": "Demo académico (Tecmilenio · Gestión de Proyectos de IA). No es un dispositivo médico ni sustituye el juicio clínico. Modelo entrenado y evaluado solo con MMOTU (un centro); pendiente validación externa.",
+  "etiqueta_real": {
+    "clase": "ovario_normal",
+    "endometrioma": false
+  },
+  "tiempo_ida_vuelta_ms": 1760
+}

@@ -1,0 +1,13 @@
+# pesos del modelo: se distribuyen como Release de GitHub (ver README)
+modelos/*
+!modelos/LEEME.md
+# imágenes de ejemplo (MMOTU): se copian con scripts/copiar_ejemplos.py
+ejemplos/*
+!ejemplos/LEEME.md
+*.zip
+.env
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/

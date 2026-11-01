@@ -1,0 +1,29 @@
+{
+  "imagenes": 469,
+  "umbral": 0.28,
+  "segundos_totales": 393.8,
+  "ms_por_imagen": 839.6,
+  "diferencia_prob_max": 0.1189,
+  "diferencia_prob_media": 0.0005641791044776124,
+  "alertas_coinciden_%": 100.0,
+  "alertas_distintas": [],
+  "metricas_docker": {
+    "TP": 96,
+    "FP": 23,
+    "FN": 14,
+    "TN": 336,
+    "recall": 0.8727272727272727,
+    "precision": 0.8067226890756303,
+    "auc": 0.9307546214231451
+  },
+  "metricas_referencia": {
+    "TP": 96,
+    "FP": 23,
+    "FN": 14,
+    "TN": 336,
+    "recall": 0.8727272727272727,
+    "precision": 0.8067226890756303,
+    "auc": 0.9308938971891618
+  },
+  "veredicto": "PARIDAD OK"
+}

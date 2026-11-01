@@ -1,5 +1,16 @@
-# OVARA · demo local
-#   docker compose up --build        →  http://localhost:3000
+# =============================================================================
+# OVARA · demo local: orquesta los dos contenedores (backend + frontend)
+#
+# Ejecución (desde esta carpeta):
+#   0) Todo en un paso:      iniciar_demo.bat   (Windows)  |  ./iniciar_demo.sh (Linux/macOS)
+#   1) Pesos del modelo:     python scripts/descargar_modelos.py      (solo la primera vez)
+#   2) Construir y encender: docker compose up --build -d
+#   3) Abrir:                http://localhost:3000        (API: http://localhost:8000/docs)
+#   4) Ver bitácoras:        docker compose logs -f backend
+#   5) Detener:              docker compose down
+# Sin pesos (solo para probar la integración):  OVARA_MODO_PRUEBA=1 docker compose up --build
+# Puertos y opciones: copiar .env.example a .env
+# =============================================================================
 services:
   backend:
     build: ./backend
